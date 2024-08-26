@@ -7,13 +7,14 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
 @Builder
 public class Invoice implements Core {
 
-    private List<BillingRecord> billingRecords;
+    private Set<BillingRecord> billingRecords;
     private Date createdTime;
     private UUID id;
     private InvoiceStatus status;

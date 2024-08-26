@@ -12,11 +12,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class FakeDB {
 
@@ -113,7 +109,7 @@ public class FakeDB {
     private static final Invoice inv1 = Invoice.builder()
             .id(UUID.fromString("11111111-1111-1111-1111-111111111111"))
             .status(InvoiceStatus.PAID)
-            .billingRecords(List.of(br1, br2, br3))
+            .billingRecords(new HashSet<>(Arrays.asList(br1, br2, br3)))
             .createdTime(getThisYearDate())
             .user(user1)
             .build();
@@ -121,7 +117,7 @@ public class FakeDB {
     private static final Invoice inv2 = Invoice.builder()
             .id(UUID.fromString("11111111-1111-1111-1111-111111111112"))
             .status(InvoiceStatus.PAID)
-            .billingRecords(List.of(br4, br5, br6))
+            .billingRecords(new HashSet<>(Arrays.asList(br4, br5, br6)))
             .createdTime(getThisYearDate())
             .user(user2)
             .build();
@@ -129,7 +125,7 @@ public class FakeDB {
     private static final Invoice inv3 = Invoice.builder()
             .id(UUID.fromString("11111111-1111-1111-1111-111111111113"))
             .status(InvoiceStatus.FAILED_AUTH)
-            .billingRecords(List.of(br7, br8))
+            .billingRecords(new HashSet<>(Arrays.asList(br7, br8)))
             .createdTime(getThisYearDate())
             .user(user2)
             .build();
